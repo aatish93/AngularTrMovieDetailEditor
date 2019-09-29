@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 import {MoviesService} from '../../services/movies.service';
 @Component({
   selector: 'app-movies',
@@ -6,9 +8,9 @@ import {MoviesService} from '../../services/movies.service';
   styleUrls: ['./movies.component.css']
 })
 export class MoviesComponent implements OnInit {
-  movies;
-  constructor(moviesService : MoviesService) {
-    this.movies=moviesService.getMovieList();
+  movies=[];
+  constructor(private moviesService : MoviesService) {
+    this.movies=moviesService.getMoviesList();
   }
 
   ngOnInit() {

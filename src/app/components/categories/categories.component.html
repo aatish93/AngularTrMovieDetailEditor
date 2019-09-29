@@ -1,0 +1,8 @@
+<div class='container'>
+  <h1>Category</h1>
+  <ul>
+    <li *ngFor="let category of categories">
+      <a routerLink="movie/{{ category.id }}">{{category.name}}</a>
+    </li>
+  </ul>
+</div>

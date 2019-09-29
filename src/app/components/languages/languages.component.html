@@ -1,0 +1,8 @@
+<div>
+  <h1>Language</h1>
+  <ul>
+    <li *ngFor="let language of languages">
+      <a routerLink="category/{{language.id}}">{{language.name}}</a>
+    </li>
+  </ul>
+</div>

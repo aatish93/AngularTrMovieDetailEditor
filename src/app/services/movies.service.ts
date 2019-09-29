@@ -1,53 +1,84 @@
 import { Injectable } from '@angular/core';
-import {MoviesComponent} from '../components/movies/movies.component';
 @Injectable({
   providedIn: 'root'
 })
 export class MoviesService {
-  moviesList=[];
-  getMovieList(){
-    return this.moviesList;
-  }
-  constructor() {
-    this.moviesList=[
+  private dataList=[]
+  constructor(            ) { }
+
+  getCategoryList(){
+    return this.dataList=[
       {
-        movieId: 1,
-        movieName: 'movieA',
-        category: 'catA',
+        id: '1',
+        name: 'horror'
+      },
+      {
+        id: '2',
+        name: 'action'
+      },
+      {
+        id: '3',
+        name: 'romance'
+      }
+    ]}
+  getLanguagesList(){
+    return this.dataList=[
+      {
+          id: 1,
+          name: 'English',
+      },
+      {
+        id: 2,
+        name: 'Tamil',
+      },
+      {
+        id: 3,
+        name: 'Hindi',
+      }
+    ]}
+  getMoviesList(){
+    return this.dataList=[
+      {
+        id: 1,
+        name: 'movieA',
+        category: 'horror',
         releaseMonth: 'Jan',
         releaseYear: 1993,
         culture: 'classical',
-        language: 'Tamil'
+        language: 'hindi'
       },
       {
-        movieId: 2,
-        movieName: 'movieB',
-        category: 'catB',
-        releaseMonth: 'Mar',
-        releaseYear: 1995,
-        culture: 'Western',
-        language: 'English'
-      }
-      ,
-      {
-        movieId: 3,
-        movieName: 'movieC',
-        category: 'catB',
-        releaseMonth: 'Apr',
-        releaseYear: 1995,
-        culture: 'Western',
-        language: 'English'
-      }
-      ,
-      {
-        movieId: 4,
-        movieName: 'movieD',
-        category: 'catB',
+        id: 2,
+        name: 'movieB',
+        category: 'action',
         releaseMonth: 'Dec',
-        releaseYear: 1997,
+        releaseYear: 1996,
         culture: 'Traditional',
-        language: 'Hindi'
+        language: 'tamil'
+      }
+      ,
+      {
+        id: 3,
+        name: 'movieC',
+        category: 'romance',
+        releaseMonth: 'Nov',
+        releaseYear: 1993,
+        culture: 'Western',
+        language: 'english'
+      }
+      ,
+      {
+        id: 4,
+        name: 'movieD',
+        category: 'romance',
+        releaseMonth: 'April',
+        releaseYear: 1995,
+        culture: 'Western',
+        language: 'english'
       }
     ]
+   }
+   getDetails(movieId){
+     return this.dataList=this.getMoviesList().filter(item => item.id==movieId);
    }
 }

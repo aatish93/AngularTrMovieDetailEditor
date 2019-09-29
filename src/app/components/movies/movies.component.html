@@ -1,5 +1,7 @@
 <div id="container">
+  <h1>Movies</h1>
   <ul>
-    <li *ngFor='let movie of movies'>{{ movie.movieName }}</li>
+    <li *ngFor='let movie of movies'>
+      <a routerLink="details/{{movie.id}}">{{ movie.name }}</a></li>
   </ul>
 </div>
