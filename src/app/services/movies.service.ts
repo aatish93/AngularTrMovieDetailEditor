@@ -41,44 +41,56 @@ export class MoviesService {
       {
         id: 1,
         name: 'movieA',
-        category: 'horror',
+        category: 1,
         releaseMonth: 'Jan',
         releaseYear: 1993,
         culture: 'classical',
-        language: 'hindi'
+        language: 3
       },
       {
         id: 2,
         name: 'movieB',
-        category: 'action',
+        category: 2,
         releaseMonth: 'Dec',
         releaseYear: 1996,
         culture: 'Traditional',
-        language: 'tamil'
+        language: 2
       }
       ,
       {
         id: 3,
         name: 'movieC',
-        category: 'romance',
+        category: 3,
         releaseMonth: 'Nov',
         releaseYear: 1993,
         culture: 'Western',
-        language: 'english'
+        language: 1
       }
       ,
       {
         id: 4,
         name: 'movieD',
-        category: 'romance',
+        category: 3,
         releaseMonth: 'April',
         releaseYear: 1995,
         culture: 'Western',
-        language: 'english'
+        language: 1
       }
     ]
    }
    getDetails(movieId){
      return this.dataList=this.getMoviesList().filter(item => item.id==movieId);
    }
+   getCategoryMovies(catId,lanId){
+     let tempList=[]
+     for(let i=0;i<this.getMoviesList().length;i++){
+        console.log('cat: '+this.getMoviesList()[i].category+' '+catId)
+       console.log('lan: '+this.getMoviesList()[i].language+' '+lanId)
+      if(this.getMoviesList()[i].category==catId && this.getMoviesList()[i].language==lanId){
+        console.log(this.getMoviesList()[i].category)
+        tempList.push(this.getMoviesList()[i])
+      }
+     }
+    return this.dataList=tempList//(this.getMoviesList().filter(item => (item.category==catId) && (item => item.language==lanId)));
+  }
 }

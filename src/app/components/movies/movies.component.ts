@@ -8,12 +8,20 @@ import {MoviesService} from '../../services/movies.service';
   styleUrls: ['./movies.component.css']
 })
 export class MoviesComponent implements OnInit {
-  movies=[];
-  constructor(private moviesService : MoviesService) {
-    this.movies=moviesService.getMoviesList();
+  movies: Object
+  catId: Object
+  lanId: Object
+  constructor(private moviesService : MoviesService, private route: ActivatedRoute) {
+    this.route.params.subscribe(
+      params => this.catId = params.cid
+    );
+    this.route.params.subscribe(
+      params => this.lanId = params.lid
+    );
   }
 
   ngOnInit() {
+    this.movies=this.moviesService.getCategoryMovies(this.catId,this.lanId);
   }
 
 }
