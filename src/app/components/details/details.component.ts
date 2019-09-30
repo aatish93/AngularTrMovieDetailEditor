@@ -15,7 +15,6 @@ export class DetailsComponent implements OnInit {
 
   ngOnInit() {
     this.details=this.data.getDetails(this.movieId)
-    console.log(this.details)
   }
 
 }

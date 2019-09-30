@@ -2,10 +2,10 @@
   <h1>Details</h1>
   <ul *ngFor="let detail of details">
     <h3><strong>Movie: {{detail.name}}</strong></h3>
-    <li><strong>Language: {{detail.language}}</strong></li>
-    <li><strong>Category: {{detail.category}}</strong></li>
+    <ul><li><strong>Language: {{detail.language.name}}</strong></li>
+    <li><strong>Category: {{detail.category.name}}</strong></li>
     <li><strong>Culture: {{detail.culture}}</strong></li>
     <li><strong>Release Month: {{detail.releaseMonth}}</strong></li>
-    <li><strong>Release Year: {{detail.releaseYear}}</strong></li>
+    <li><strong>Release Year: {{detail.releaseYear}}</strong></li></ul>
   </ul>
 </div>

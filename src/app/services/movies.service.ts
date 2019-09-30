@@ -4,93 +4,123 @@ import { Injectable } from '@angular/core';
 })
 export class MoviesService {
   private dataList=[]
-  constructor(            ) { }
-
-  getCategoryList(){
-    return this.dataList=[
-      {
-        id: '1',
-        name: 'horror'
-      },
-      {
-        id: '2',
-        name: 'action'
-      },
-      {
-        id: '3',
-        name: 'romance'
-      }
-    ]}
-  getLanguagesList(){
-    return this.dataList=[
-      {
-          id: 1,
-          name: 'English',
-      },
-      {
-        id: 2,
-        name: 'Tamil',
-      },
-      {
-        id: 3,
-        name: 'Hindi',
-      }
-    ]}
-  getMoviesList(){
-    return this.dataList=[
+  constructor() {
+    this.dataList=[
       {
         id: 1,
         name: 'movieA',
-        category: 1,
+        category: {
+          id: '1',
+          name: 'horror'
+        },
         releaseMonth: 'Jan',
         releaseYear: 1993,
         culture: 'classical',
-        language: 3
+        language: {
+          id: 3,
+          name: 'Hindi'
+        }
       },
       {
         id: 2,
         name: 'movieB',
-        category: 2,
+        category: {
+          id: '2',
+          name: 'action'
+        },
         releaseMonth: 'Dec',
         releaseYear: 1996,
         culture: 'Traditional',
-        language: 2
+        language: {
+          id: 2,
+          name: 'Tamil'
+        }
       }
       ,
       {
         id: 3,
         name: 'movieC',
-        category: 3,
+        category: {
+          id: '3',
+          name: 'romance'
+        },
         releaseMonth: 'Nov',
         releaseYear: 1993,
         culture: 'Western',
-        language: 1
+        language: {
+            id: 1,
+            name: 'English'
+        }
       }
       ,
       {
         id: 4,
         name: 'movieD',
-        category: 3,
-        releaseMonth: 'April',
+        category: {
+          id: '3',
+          name: 'romance'
+        },
+        releaseMonth: 'Apr',
         releaseYear: 1995,
         culture: 'Western',
-        language: 1
+        language: {
+            id: 1,
+            name: 'English'
+        }
       }
     ]
-   }
-   getDetails(movieId){
-     return this.dataList=this.getMoviesList().filter(item => item.id==movieId);
-   }
-   getCategoryMovies(catId,lanId){
-     let tempList=[]
-     for(let i=0;i<this.getMoviesList().length;i++){
-        console.log('cat: '+this.getMoviesList()[i].category+' '+catId)
-       console.log('lan: '+this.getMoviesList()[i].language+' '+lanId)
-      if(this.getMoviesList()[i].category==catId && this.getMoviesList()[i].language==lanId){
-        console.log(this.getMoviesList()[i].category)
-        tempList.push(this.getMoviesList()[i])
+  }
+
+  getMoviesList(){
+    return this.dataList;
+  }
+  getCategoryList(){
+    let tempList=[];
+    for(let i=0;i<this.dataList.length;i++){
+      if((tempList.filter(item => (item.id==this.dataList[i].category.id)).length == 0)){
+        tempList.push({
+          id: this.dataList[i].category.id,
+          name: this.dataList[i].category.name
+        })
       }
      }
-    return this.dataList=tempList//(this.getMoviesList().filter(item => (item.category==catId) && (item => item.language==lanId)));
+    return tempList;
+  }
+  getLanguagesList(){let tempList=[];
+    for(let i=0;i<this.dataList.length;i++){
+      if((tempList.filter(item => (item.id==this.dataList[i].language.id)).length == 0)){
+        tempList.push({
+          id: this.dataList[i].language.id,
+          name: this.dataList[i].language.name
+        })
+      }
+     }
+     console.log(tempList);
+    return tempList;
+  }
+  getDetails(movieId){
+     return this.dataList.filter(item => item.id==movieId);
+  }
+  getCategoryMovies(catId,lanId){
+     let tempList=[];
+     for(let i=0;i<this.dataList.length;i++){
+      if(this.dataList[i].category.id==catId && this.dataList[i].language.id==lanId){
+        tempList.push(this.dataList[i])
+      }
+     }
+    return tempList//(this.dataList.filter(item => (item.category==catId) && (item => item.language==lanId)));
+  }
+  getMonthYearList(catId,lanId){
+    let tempList=[];
+    let moviesList=this.getCategoryMovies(catId,lanId);
+    for(let i=0;i<moviesList.length;i++){
+      if((tempList.filter(item => (item.month==moviesList[i].releaseMonth)).length == 0 && (tempList.filter(item => (item.year==moviesList[i].releaseYear).length == 0)){
+        tempList.push({
+          month: moviesList[i].releaseMonth,
+          year: moviesList[i].releaseYear
+        })
+      }
+     }
+     return tempList;
   }
 }
