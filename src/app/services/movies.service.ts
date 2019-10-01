@@ -71,6 +71,57 @@ export class MoviesService {
     ]
   }
 
+  setMovieName(movieId,value){
+    for(let i=0;i<this.dataList.length;i++){
+      if(this.dataList[i].id==movieId){
+        this.dataList[i].name=value;
+      }
+      break;
+    }
+  }
+  setMovieCategory(movieId,catId,value){
+    for(let i=0;i<this.dataList.length;i++){
+      if(this.dataList[i].id==movieId){
+        this.dataList[i].category.id=catId;
+        this.dataList[i].category.name=value;
+      }
+      break;
+    }
+  }
+  setMovieRelMonth(movieId,value){
+    for(let i=0;i<this.dataList.length;i++){
+      if(this.dataList[i].id==movieId){
+        this.dataList[i].releaseMonth=value;
+      }
+      break;
+    }
+  }
+  setMovieRelYear(movieId,value){
+    for(let i=0;i<this.dataList.length;i++){
+      if(this.dataList[i].id==movieId){
+        this.dataList[i].releaseYear=value;
+      }
+      break;
+    }
+  }
+  setMovieCulture(movieId,value){
+    for(let i=0;i<this.dataList.length;i++){
+      if(this.dataList[i].id==movieId){
+        this.dataList[i].culture=value;
+      }
+      break;
+    }
+  }
+  setMovieLanguage(movieId,lanId,value){
+    for(let i=0;i<this.dataList.length;i++){
+      if(this.dataList[i].id==movieId){
+        this.dataList[i].language.id=lanId;
+        this.dataList[i].language.name=value;
+      }
+      break;
+    }
+  }
+
   getMoviesList(){
     return this.dataList;
   }
@@ -86,7 +137,8 @@ export class MoviesService {
      }
     return tempList;
   }
-  getLanguagesList(){let tempList=[];
+  getLanguagesList(){
+    let tempList=[];
     for(let i=0;i<this.dataList.length;i++){
       if((tempList.filter(item => (item.id==this.dataList[i].language.id)).length == 0)){
         tempList.push({
@@ -108,7 +160,7 @@ export class MoviesService {
         tempList.push(this.dataList[i])
       }
      }
-    return tempList//(this.dataList.filter(item => (item.category==catId) && (item => item.language==lanId)));
+    return tempList
   }
   getMonthYearList(catId,lanId){
     let tempList=[];

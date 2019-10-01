@@ -12,7 +12,7 @@ export class MoviesComponent implements OnInit {
   monthYearList: Object;
   catId: Object;
   lanId: Object;
-  searchText;
+  //searchText;
   constructor(private moviesService : MoviesService, private route: ActivatedRoute) {
     this.route.params.subscribe(
       params => this.catId = params.cid

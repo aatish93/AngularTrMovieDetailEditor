@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviesService } from '../../services/movies.service'
 import { ActivatedRoute } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
@@ -15,6 +17,10 @@ export class DetailsComponent implements OnInit {
 
   ngOnInit() {
     this.details=this.data.getDetails(this.movieId)
+  }
+
+  onSubmit(movieData) {
+    console.log(movieData);
   }
 
 }
