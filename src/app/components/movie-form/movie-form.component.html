@@ -1,0 +1,38 @@
+<div class="outer">
+  <br>
+  <strong>Edit movie</strong>
+  <form>
+  <br>
+  <div class="form-group">
+    <label for="name">Name: </label>
+    <input required ngModel name="name" #name="ngModel" id="name" type="text" class="form-control">
+    <div class="alert-danger" *ngIf="name.touched && !name.valid">Name is required</div>
+  </div>
+  <div class="form-group">
+    <label for="category">Category: </label>
+    <!--<input ngModel name="category" id="category" type="text" class="form-control">-->
+    <select [(ngModel)]="selectedValue" name="category" #category="ngModel" id="category" class="form-control" (change)="log(category)">
+      <option *ngFor="let category of categoryList" value={{category}}>{{category.name}}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="culture">Culture: </label>
+    <input ngModel name="culture" id="culture" type="text" class="form-control">
+  </div>
+  <div class="form-group">
+    <label for="language">Language: </label>
+    <select [(ngModel)]="selectedValue" name="language" #language="ngModel" id="language" class="form-control" (change)="log(language)">
+      <option *ngFor="let language of languageList" value={{language}}>{{language.name}}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="releasemonth">ReleaseMonth: </label>
+    <input ngModel name="releasemonth" id="releasemonth" type="number" class="form-control" min="1" max="12">
+  </div>
+  <div class="form-group">
+    <label for="releaseyear">ReleaseYear</label>
+    <input ngModel name="releaseyear" id="releaseyear" type="number" class="form-control" min="1900" max="3000">
+  </div>
+  <br><button class="button" type="submit">Update</button>
+  </form>
+</div>

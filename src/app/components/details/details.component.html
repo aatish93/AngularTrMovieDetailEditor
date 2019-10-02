@@ -8,14 +8,5 @@
     <li><strong>Release Month: {{detail.releaseMonth}}</strong></li>
     <li><strong>Release Year: {{detail.releaseYear}}</strong></li></ul>
   </ul>
-  <form>
-  <div class="formGroup" (ngSubmit)="onSubmit(updateMovieForm.value)">
-    <label for="name">
-      Name
-    </label>
-    <input id="name" type="text" class="formControlName">
-
-  </div>
-  <button class="button" type="submit">Update</button>
-  </form>
+  <app-movie-form></app-movie-form>
 </div>

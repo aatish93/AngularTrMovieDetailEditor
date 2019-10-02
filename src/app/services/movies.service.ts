@@ -166,7 +166,7 @@ export class MoviesService {
     let tempList=[];
     let moviesList=this.getCategoryMovies(catId,lanId);
     for(let i=0;i<moviesList.length;i++){
-      if((tempList.filter(item => (item.month==moviesList[i].releaseMonth)).length == 0 && (tempList.filter(item => (item.year==moviesList[i].releaseYear).length == 0)){
+      if((tempList.filter(item => (item.month==moviesList[i].releaseMonth)).length == 0 && (tempList.filter(item => (item.year==moviesList[i].releaseYear)).length == 0))){
         tempList.push({
           month: moviesList[i].releaseMonth,
           year: moviesList[i].releaseYear
