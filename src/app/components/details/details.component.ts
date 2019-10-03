@@ -19,8 +19,5 @@ export class DetailsComponent implements OnInit {
     this.details=this.data.getDetails(this.movieId)
   }
 
-  onSubmit(movieData) {
-    console.log(movieData);
-  }
 
 }

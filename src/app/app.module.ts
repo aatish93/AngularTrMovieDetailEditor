@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { DetailsComponent } from './components/details/details.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { FormsModule } from '@angular/forms';
+
 import { MovieFormComponent } from './components/movie-form/movie-form.component';
 
 @NgModule({

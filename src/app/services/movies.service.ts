@@ -10,10 +10,10 @@ export class MoviesService {
         id: 1,
         name: 'movieA',
         category: {
-          id: '1',
+          id: 1,
           name: 'horror'
         },
-        releaseMonth: 'Jan',
+        releaseMonth: 1,
         releaseYear: 1993,
         culture: 'classical',
         language: {
@@ -25,10 +25,10 @@ export class MoviesService {
         id: 2,
         name: 'movieB',
         category: {
-          id: '2',
+          id: 2,
           name: 'action'
         },
-        releaseMonth: 'Dec',
+        releaseMonth: 12,
         releaseYear: 1996,
         culture: 'Traditional',
         language: {
@@ -41,10 +41,10 @@ export class MoviesService {
         id: 3,
         name: 'movieC',
         category: {
-          id: '3',
+          id: 3,
           name: 'romance'
         },
-        releaseMonth: 'Nov',
+        releaseMonth: 11,
         releaseYear: 1993,
         culture: 'Western',
         language: {
@@ -57,10 +57,10 @@ export class MoviesService {
         id: 4,
         name: 'movieD',
         category: {
-          id: '3',
+          id: 3,
           name: 'romance'
         },
-        releaseMonth: 'Apr',
+        releaseMonth: 4,
         releaseYear: 1995,
         culture: 'Western',
         language: {
@@ -75,8 +75,8 @@ export class MoviesService {
     for(let i=0;i<this.dataList.length;i++){
       if(this.dataList[i].id==movieId){
         this.dataList[i].name=value;
+        return this.dataList;
       }
-      break;
     }
   }
   setMovieCategory(movieId,catId,value){
@@ -84,32 +84,32 @@ export class MoviesService {
       if(this.dataList[i].id==movieId){
         this.dataList[i].category.id=catId;
         this.dataList[i].category.name=value;
+        return this.dataList;
       }
-      break;
     }
   }
   setMovieRelMonth(movieId,value){
     for(let i=0;i<this.dataList.length;i++){
       if(this.dataList[i].id==movieId){
         this.dataList[i].releaseMonth=value;
+        return this.dataList;
       }
-      break;
     }
   }
   setMovieRelYear(movieId,value){
     for(let i=0;i<this.dataList.length;i++){
       if(this.dataList[i].id==movieId){
         this.dataList[i].releaseYear=value;
+        return this.dataList;
       }
-      break;
     }
   }
   setMovieCulture(movieId,value){
     for(let i=0;i<this.dataList.length;i++){
       if(this.dataList[i].id==movieId){
         this.dataList[i].culture=value;
+        return this.dataList;
       }
-      break;
     }
   }
   setMovieLanguage(movieId,lanId,value){
@@ -117,8 +117,8 @@ export class MoviesService {
       if(this.dataList[i].id==movieId){
         this.dataList[i].language.id=lanId;
         this.dataList[i].language.name=value;
+        return this.dataList;
       }
-      break;
     }
   }
 
@@ -147,7 +147,6 @@ export class MoviesService {
         })
       }
      }
-     console.log(tempList);
     return tempList;
   }
   getDetails(movieId){
