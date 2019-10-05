@@ -12,7 +12,7 @@
     <label for="category">Category: </label>
     <!--<input ngModel name="category" id="category" type="text" class="form-control">-->
     <select ngModel name="category" #category="ngModel" id="category" class="form-control">
-      <option *ngFor="let category of categoryList" value='{id: {{category.id}}, name="{{category.name}}"}'>{{category.name}}</option>
+      <option *ngFor="let category of categoryList" value="{{category.id+':'+category.name}}">{{category.name}}</option>
     </select>
   </div>
   <div class="form-group">
@@ -22,7 +22,7 @@
   <div class="form-group">
     <label for="language">Language: </label>
     <select ngModel name="language" #language="ngModel" id="language" class="form-control">
-      <option *ngFor="let language of languageList" value="{{language | json}}">{{language.name}}</option>
+      <option *ngFor="let language of languageList" value="{{language.id+':'+language.name}}">{{language.name}}</option>
     </select>
   </div>
   <div class="form-group">
