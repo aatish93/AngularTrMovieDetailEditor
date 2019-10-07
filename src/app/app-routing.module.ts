@@ -4,6 +4,7 @@ import { LanguagesComponent } from './components/languages/languages.component';
 import { CategoriesComponent } from './components/categories/categories.component';
 import { MoviesComponent } from './components/movies/movies.component';
 import { DetailsComponent } from './components/details/details.component';
+import { MovieFormComponent } from './components/movie-form/movie-form.component';
 const routes: Routes = [
   {
     path: '',
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: 'category/:lid/movie/:cid/details/:mid',
     component: DetailsComponent
+  },
+  {
+    path: 'category/:lid/movie/:cid/details/:mid/update',
+    component: MovieFormComponent
   }
 ];
 

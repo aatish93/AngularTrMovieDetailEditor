@@ -9,7 +9,6 @@
     <li><strong>Release Year: {{detail.releaseYear}}</strong></li></ul>
     
     &nbsp;&nbsp;<a (click)="deleteMovie()" routerLink="/category/{{detail.language.id}}/movie/{{detail.category.id}}">Delete</a>
-    &nbsp;&nbsp;<a (click)="updateMovie()" routerLink="/category/{{detail.language.id}}/movie/{{detail.category.id}}">Update</a>
+    &nbsp;&nbsp;<a routerLink="update">Update</a>
   </ul>
-  <app-movie-form></app-movie-form>
 </div>
