@@ -71,6 +71,16 @@ export class MoviesService {
     ]
   }
 
+  delete(movieId){
+    let tempList=[];
+    for(let i=0;i<this.dataList.length;i++){
+      if(this.dataList[i].id!=movieId){
+        tempList.push(this.dataList[i]);
+      }
+    }
+    return this.dataList=tempList;
+  }
+
   setMovieName(movieId,value){
     for(let i=0;i<this.dataList.length;i++){
       if(this.dataList[i].id==movieId){

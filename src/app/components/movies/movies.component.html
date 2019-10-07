@@ -7,7 +7,8 @@
       {{monthYear.month+' '+monthYear.year}}
       <ul *ngFor='let movie of movies | filter:searchText:name'>
         <li *ngIf="monthYear.month == movie.releaseMonth && monthYear.year == movie.releaseYear">
-          <a routerLink="details/{{movie.id}}">{{ movie.name }}</a></li>
+          <a routerLink="details/{{movie.id}}">{{ movie.name }}</a>
+        </li>
       </ul>
     </li>
   </ul>

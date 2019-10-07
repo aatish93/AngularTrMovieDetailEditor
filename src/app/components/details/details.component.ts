@@ -19,5 +19,9 @@ export class DetailsComponent implements OnInit {
     this.details=this.data.getDetails(this.movieId)
   }
 
+  deleteMovie(){
+    this.data.delete(this.movieId);
+    console.log(this.data.getMoviesList());
+  }
 
 }
