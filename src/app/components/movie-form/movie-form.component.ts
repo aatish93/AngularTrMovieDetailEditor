@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild} from '@angular/core';
 import { MoviesService } from '../../services/movies.service'
 import { FormsModule, FormGroup, FormControl} from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import {Router} from '@angular/router';
 @Component({
   selector: 'app-movie-form',
   templateUrl: './movie-form.component.html',
@@ -13,7 +14,7 @@ export class MovieFormComponent implements OnInit {
   languageList: Object
   operation: Object
   @ViewChild('f') form: any;
-  constructor(private data:MoviesService, private route: ActivatedRoute) {
+  constructor(private data:MoviesService, private route: ActivatedRoute, private router: Router) {
     this.categoryList=this.data.getCategoryList();
     this.languageList=this.data.getLanguagesList();
     this.route.params.subscribe( params => this.movieId = params.mid);
@@ -43,6 +44,7 @@ export class MovieFormComponent implements OnInit {
         //this.data.setMovieName(3,"movienewc");
         console.log(this.data.getMoviesList());
         this.form.reset();
+        this.router.navigateByUrl('/');
     }
     if (this.operation=='insert'){
       let movie,maxId=this.data.getMaxMovieId();
@@ -62,6 +64,7 @@ export class MovieFormComponent implements OnInit {
         }
       }
       this.data.insert(movie);
+      this.router.navigateByUrl('/');
     }
   }
 

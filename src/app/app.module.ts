@@ -12,6 +12,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { FormsModule } from '@angular/forms';
 
 import { MovieFormComponent } from './components/movie-form/movie-form.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { MovieFormComponent } from './components/movie-form/movie-form.component
     CategoriesComponent,
     LanguagesComponent,
     DetailsComponent,
-    MovieFormComponent
+    MovieFormComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,

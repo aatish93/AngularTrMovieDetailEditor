@@ -1,0 +1,16 @@
+<div>
+  <!--https://www.telerik.com/kendo-angular-ui/components/treeview/
+      https://angular2-tree.readme.io/docs/#installation
+    https://www.npmjs.com/package/ngx-treeview-->
+<ul>
+  <li *ngFor="let language of languageList" [id]="language.id">
+    <span (click)="initCategory()">{{language.name}}
+      <ul *ngFor="let category of categoryList" [id]="category.id"><li>
+        <span (click)="initMovies(category.id,language.id)">{{category.name}}
+          <ul *ngFor="let movie of movieList" [id]="movie.id"><li>{{movie.name}}</li></ul>
+        </span>
+      </li></ul>
+    </span>
+  </li>
+</ul>
+</div>
