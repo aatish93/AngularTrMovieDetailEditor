@@ -24,9 +24,13 @@ const routes: Routes = [
     component: DetailsComponent
   },
   {
-    path: 'category/:lid/movie/:cid/details/:mid/update',
+    path: 'category/:lid/movie/:cid/details/:mid/opr/:opr',
     component: MovieFormComponent
-  }
+  }//,
+  // {
+  //   path: 'category/:lid/movie/:cid/insert',
+  //   component: MovieFormComponent
+  // }
 ];
 
 @NgModule({

@@ -1,6 +1,7 @@
 <div class="outer">
   <br>
-  <strong>Edit movie</strong>
+  <strong *ngIf="operation=='update'">Edit movie</strong>
+  <strong *ngIf="operation=='insert'">Add movie</strong>
   <form #f="ngForm" (ngSubmit)="onSubmit()">
   <br>
   <div class="form-group">
@@ -29,7 +30,7 @@
     <label for="releasedate">ReleaseMonth: </label>
     <input ngModel name="releasedate" id="releasedate" type="month" class="form-control">
   </div>
-  <br><button class="button" type="submit">Update</button>
+  <br><button class="button" type="submit">Submit</button>
   </form>
   <br>
 </div>

@@ -11,11 +11,13 @@ export class MovieFormComponent implements OnInit {
   movieId: Object
   categoryList: Object
   languageList: Object
+  operation: Object
   @ViewChild('f') form: any;
   constructor(private data:MoviesService, private route: ActivatedRoute) {
     this.categoryList=this.data.getCategoryList();
     this.languageList=this.data.getLanguagesList();
     this.route.params.subscribe( params => this.movieId = params.mid);
+    this.route.params.subscribe( params => this.operation = params.opr);
   }
 
   ngOnInit() {}
@@ -24,22 +26,43 @@ export class MovieFormComponent implements OnInit {
     console.log(x);
   }
   onSubmit() {
-    let editedMovie=JSON.parse(JSON.stringify(this.form.value).replace(/\\n/g, '').replace('  ',''));
-      if (editedMovie.name != "" && editedMovie.name !=null)
-        this.data.setMovieName(this.movieId,editedMovie.name);
-      if (editedMovie.category != "" && editedMovie.category !=null)
-        this.data.setMovieCategory(this.movieId,editedMovie.category.split(':')[0],editedMovie.category.split(':')[1]);
-      if (editedMovie.culture != "" && editedMovie.culture !=null)
-        this.data.setMovieCulture(this.movieId,editedMovie.culture);
-      if (editedMovie.releasedate != "" && editedMovie.releasedate !=null){
-        this.data.setMovieRelYear(this.movieId,editedMovie.releasedate.split('-')[0]);
-        this.data.setMovieRelMonth(this.movieId,editedMovie.releasedate.split('-')[1]);
-      }
-      if (editedMovie.language != "" && editedMovie.language !=null)
-        this.data.setMovieLanguage(this.movieId,editedMovie.language.split(':')[0],editedMovie.language.split(':')[1]);
-      //this.data.setMovieName(3,"movienewc");
-      console.log(this.data.getMoviesList());
-      this.form.reset();
+    let newMovie=JSON.parse(JSON.stringify(this.form.value).replace(/\\n/g, '').replace('  ',''));
+    if (this.operation=='update'){
+        if (newMovie.name != "" && newMovie.name !=null)
+          this.data.setMovieName(this.movieId,newMovie.name);
+        if (newMovie.category != "" && newMovie.category !=null)
+          this.data.setMovieCategory(this.movieId,newMovie.category.split(':')[0],newMovie.category.split(':')[1]);
+        if (newMovie.culture != "" && newMovie.culture !=null)
+          this.data.setMovieCulture(this.movieId,newMovie.culture);
+        if (newMovie.releasedate != "" && newMovie.releasedate !=null){
+          this.data.setMovieRelYear(this.movieId,newMovie.releasedate.split('-')[0]);
+          this.data.setMovieRelMonth(this.movieId,newMovie.releasedate.split('-')[1]);
+        }
+        if (newMovie.language != "" && newMovie.language !=null)
+          this.data.setMovieLanguage(this.movieId,newMovie.language.split(':')[0],newMovie.language.split(':')[1]);
+        //this.data.setMovieName(3,"movienewc");
+        console.log(this.data.getMoviesList());
+        this.form.reset();
     }
+    if (this.operation=='insert'){
+      let movie,maxId=this.data.getMaxMovieId();
+      movie={
+        id: maxId+1,
+        name: newMovie.name,
+        category: {
+          id: parseInt(newMovie.category.split(':')[0]),
+          name: newMovie.category.split(':')[1]
+        },
+        culture: newMovie.culture,
+        releaseMonth: parseInt(newMovie.releasedate.split('-')[1]),
+        releaseYear: parseInt(newMovie.releasedate.split('-')[0]),
+        language: {
+          id: parseInt(newMovie.language.split(':')[0]),
+          name: newMovie.language.split(':')[1]
+        }
+      }
+      this.data.insert(movie);
+    }
+  }
 
 }

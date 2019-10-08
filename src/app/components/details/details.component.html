@@ -1,14 +1,14 @@
 <div class="container">
   <h1>Details</h1>
   <ul *ngFor="let detail of details">
-    <h3><strong>Movie: {{detail.name}}</strong></h3>
-    <ul><li><strong>Language: {{detail.language.name}}</strong></li>
+    <br><h3><strong>Movie: {{detail.name}}</strong></h3>
+    <br><ul><li><strong>Language: {{detail.language.name}}</strong></li>
     <li><strong>Category: {{detail.category.name}}</strong></li>
     <li><strong>Culture: {{detail.culture}}</strong></li>
     <li><strong>Release Month: {{detail.releaseMonth}}</strong></li>
     <li><strong>Release Year: {{detail.releaseYear}}</strong></li></ul>
     
-    &nbsp;&nbsp;<a (click)="deleteMovie()" routerLink="/category/{{detail.language.id}}/movie/{{detail.category.id}}">Delete</a>
-    &nbsp;&nbsp;<a routerLink="update">Update</a>
+    <br><a (click)="deleteMovie()" routerLink="/category/{{detail.language.id}}/movie/{{detail.category.id}}">Delete</a>
+    &nbsp;&nbsp;<a routerLink="/category/{{detail.language.id}}/movie/{{detail.category.id}}/opr/update">Update</a>
   </ul>
 </div>

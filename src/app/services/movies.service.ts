@@ -81,6 +81,20 @@ export class MoviesService {
     return this.dataList=tempList;
   }
 
+  insert(newMovie){
+    return this.dataList.push(newMovie);
+  }
+
+  getMaxMovieId(){
+    let t=0;
+    for(let i=0;i<this.dataList.length;i++){
+      if(this.dataList[i].id>t){
+        t=this.dataList[i].id;
+      }
+    }
+    return t;
+  }
+
   setMovieName(movieId,value){
     for(let i=0;i<this.dataList.length;i++){
       if(this.dataList[i].id==movieId){

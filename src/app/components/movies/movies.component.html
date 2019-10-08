@@ -1,15 +1,13 @@
-<div id="container">
+<div class='container'>
   <h1>Movies</h1>
-  
-  <ul>
-    <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Start searching for a movie">
-    <li *ngFor='let monthYear of monthYearList'>
+  <br><a routerLink="details/0/opr/insert">Add new</a><br>
+  <br><input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Start searching for a movie">
+    <br><ul *ngFor='let monthYear of monthYearList'>
       {{monthYear.month+' '+monthYear.year}}
       <ul *ngFor='let movie of movies | filter:searchText:name'>
         <li *ngIf="monthYear.month == movie.releaseMonth && monthYear.year == movie.releaseYear">
           <a routerLink="details/{{movie.id}}">{{ movie.name }}</a>
         </li>
       </ul>
-    </li>
   </ul>
 </div>
