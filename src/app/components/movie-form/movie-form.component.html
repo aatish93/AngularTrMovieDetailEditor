@@ -6,31 +6,35 @@
   <br>
   <div class="form-group">
     <label for="name">Name: </label>
-    <input required ngModel name="name" #name="ngModel" id="name" type="text" class="form-control">
+    <input required="{{!upd}}" ngModel name="name" #name="ngModel" id="name" type="text" class="form-control">
     <div class="alert-danger" *ngIf="name.touched && !name.valid">Name is required</div>
   </div>
   <div class="form-group" (ngSubmit)="onSubmit()">
     <label for="category">Category: </label>
     <!--<input ngModel name="category" id="category" type="text" class="form-control">-->
-    <select ngModel name="category" #category="ngModel" id="category" class="form-control">
+    <select required="{{!upd}}" ngModel name="category" #category="ngModel" id="category" class="form-control">
       <option *ngFor="let category of categoryList" value="{{category.id+':'+category.name}}">{{category.name}}</option>
     </select>
+    <div class="alert-danger" *ngIf="category.touched && !category.valid">Category is required</div>
   </div>
   <div class="form-group">
     <label for="culture">Culture: </label>
-    <input ngModel name="culture" id="culture" type="text" class="form-control">
+    <input required="{{!upd}}" ngModel name="culture" #culture="ngModel" id="culture" type="text" class="form-control">
+    <div class="alert-danger" *ngIf="culture.touched && !culture.valid">Culture is required</div>
   </div>
   <div class="form-group">
     <label for="language">Language: </label>
-    <select ngModel name="language" #language="ngModel" id="language" class="form-control">
+    <select required="{{!upd}}" ngModel name="language" #language="ngModel" id="language" class="form-control">
       <option *ngFor="let language of languageList" value="{{language.id+':'+language.name}}">{{language.name}}</option>
     </select>
+    <div class="alert-danger" *ngIf="language.touched && !language.valid">Language is required</div>
   </div>
   <div class="form-group">
-    <label for="releasedate">ReleaseMonth: </label>
-    <input ngModel name="releasedate" id="releasedate" type="month" class="form-control">
+    <label for="releasedate">Release Date: </label>
+    <input required="{{!upd}}" ngModel name="releasedate" #releasedate="ngModel" id="releasedate" type="month" class="form-control">
+    <div class="alert-danger" *ngIf="releasedate.touched && !releasedate.valid">ReleaseDate is required</div>
   </div>
-  <br><button class="button" type="submit">Submit</button>
+  <br><button class="button" type="submit" [disabled]="!f.valid">Submit</button>
   </form>
   <br>
 </div>

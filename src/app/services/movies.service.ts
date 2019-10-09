@@ -8,7 +8,7 @@ export class MoviesService {
     this.dataList=[
       {
         id: 1,
-        name: 'movieA',
+        name: 'The train',
         category: {
           id: 1,
           name: 'horror'
@@ -23,7 +23,7 @@ export class MoviesService {
       },
       {
         id: 2,
-        name: 'movieB',
+        name: 'Don is back',
         category: {
           id: 2,
           name: 'action'
@@ -39,7 +39,7 @@ export class MoviesService {
       ,
       {
         id: 3,
-        name: 'movieC',
+        name: 'Titanic',
         category: {
           id: 3,
           name: 'romance'
@@ -55,7 +55,7 @@ export class MoviesService {
       ,
       {
         id: 4,
-        name: 'movieD',
+        name: 'Red rose',
         category: {
           id: 3,
           name: 'romance'

@@ -9,10 +9,11 @@ import {Router} from '@angular/router';
   styleUrls: ['./movie-form.component.css']
 })
 export class MovieFormComponent implements OnInit {
-  movieId: Object
-  categoryList: Object
-  languageList: Object
-  operation: Object
+  movieId: Object;
+  categoryList: Object;
+  languageList: Object;
+  operation: Object;
+  upd: Boolean;
   @ViewChild('f') form: any;
   constructor(private data:MoviesService, private route: ActivatedRoute, private router: Router) {
     this.categoryList=this.data.getCategoryList();
@@ -21,7 +22,9 @@ export class MovieFormComponent implements OnInit {
     this.route.params.subscribe( params => this.operation = params.opr);
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    if (this.operation=='update') this.upd=true; else this.upd=false;
+  }
 
   log(x){
     console.log(x);
