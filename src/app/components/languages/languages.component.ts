@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviesService } from '../../services/movies.service';
+import { format } from 'url';
 
 
 @Component({
@@ -9,10 +10,10 @@ import { MoviesService } from '../../services/movies.service';
 })
 export class LanguagesComponent implements OnInit {
   languages: Object;
+
   constructor(private list : MoviesService) { }
 
   ngOnInit() {
     this.languages = this.list.getLanguagesList()
   }
-
 }

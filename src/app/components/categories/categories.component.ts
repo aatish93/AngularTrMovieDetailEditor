@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviesService } from '../../services/movies.service';
-import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-categories',

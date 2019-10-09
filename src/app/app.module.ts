@@ -10,7 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { DetailsComponent } from './components/details/details.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { FormsModule } from '@angular/forms';
-
+import { TreeModule } from 'angular-tree-component';
 import { MovieFormComponent } from './components/movie-form/movie-form.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 
@@ -29,7 +29,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     AppRoutingModule,
     HttpClientModule,
     Ng2SearchPipeModule,
-    FormsModule
+    FormsModule,
+    TreeModule.forRoot()
   ],
   providers: [
     
