@@ -36,22 +36,22 @@ export class MoviesService {
           name: 'Tamil'
         }
       }
-      ,
-      {
-        id: 3,
-        name: 'Titanic',
-        category: {
-          id: 3,
-          name: 'romance'
-        },
-        releaseMonth: 11,
-        releaseYear: 1993,
-        culture: 'Western',
-        language: {
-            id: 1,
-            name: 'English'
-        }
-      }
+      // ,
+      // {
+      //   id: 3,
+      //   name: 'Titanic',
+      //   category: {
+      //     id: 3,
+      //     name: 'romance'
+      //   },
+      //   releaseMonth: 11,
+      //   releaseYear: 1993,
+      //   culture: 'Western',
+      //   language: {
+      //       id: 1,
+      //       name: 'English'
+      //   }
+      // }
       ,
       {
         id: 4,
@@ -59,6 +59,22 @@ export class MoviesService {
         category: {
           id: 3,
           name: 'romance'
+        },
+        releaseMonth: 4,
+        releaseYear: 1995,
+        culture: 'Western',
+        language: {
+            id: 1,
+            name: 'English'
+        }
+        
+      },
+      {
+        id: 5,
+        name: 'Black Mirror',
+        category: {
+          id: 2,
+          name: 'action'
         },
         releaseMonth: 4,
         releaseYear: 1995,
@@ -187,7 +203,6 @@ export class MoviesService {
         tempList.push(this.dataList[i])
       }
      }}
-     console.log(tempList[2])
     return tempList;
   }
   getMonthYearList(catId,lanId){

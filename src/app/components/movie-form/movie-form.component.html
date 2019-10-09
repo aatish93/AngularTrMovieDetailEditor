@@ -6,12 +6,11 @@
   <br>
   <div class="form-group">
     <label for="name">Name: </label>
-    <input required="{{!upd}}" ngModel name="name" #name="ngModel" id="name" type="text" class="form-control">
+    <input required="{{!upd}}" ngModel name="name" #name="ngModel" id="name" type="text" class="form-control" placeholder="{{movieObj.name}}">
     <div class="alert-danger" *ngIf="name.touched && !name.valid">Name is required</div>
   </div>
   <div class="form-group" (ngSubmit)="onSubmit()">
     <label for="category">Category: </label>
-    <!--<input ngModel name="category" id="category" type="text" class="form-control">-->
     <select required="{{!upd}}" ngModel name="category" #category="ngModel" id="category" class="form-control">
       <option *ngFor="let category of categoryList" value="{{category.id+':'+category.name}}">{{category.name}}</option>
     </select>
@@ -19,7 +18,7 @@
   </div>
   <div class="form-group">
     <label for="culture">Culture: </label>
-    <input required="{{!upd}}" ngModel name="culture" #culture="ngModel" id="culture" type="text" class="form-control">
+    <input required="{{!upd}}" ngModel name="culture" #culture="ngModel" id="culture" type="text" class="form-control" placeholder="{{movieObj.culture}}">
     <div class="alert-danger" *ngIf="culture.touched && !culture.valid">Culture is required</div>
   </div>
   <div class="form-group">
@@ -31,7 +30,7 @@
   </div>
   <div class="form-group">
     <label for="releasedate">Release Date: </label>
-    <input required="{{!upd}}" ngModel name="releasedate" #releasedate="ngModel" id="releasedate" type="month" class="form-control">
+    <input required="{{!upd}}" ngModel name="releasedate" #releasedate="ngModel" id="releasedate" type="month" class="form-control" value="<?=date('{{movieObj.releaseYear}}-{{movieObj.releaseMonth}}')?>">
     <div class="alert-danger" *ngIf="releasedate.touched && !releasedate.valid">ReleaseDate is required</div>
   </div>
   <br><button class="button" type="submit" [disabled]="!f.valid">Submit</button>

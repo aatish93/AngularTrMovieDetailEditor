@@ -14,11 +14,15 @@ export class MovieFormComponent implements OnInit {
   languageList: Object;
   operation: Object;
   upd: Boolean;
+  movieObj: Object;
   @ViewChild('f') form: any;
   constructor(private data:MoviesService, private route: ActivatedRoute, private router: Router) {
     this.categoryList=this.data.getCategoryList();
     this.languageList=this.data.getLanguagesList();
-    this.route.params.subscribe( params => this.movieId = params.mid);
+    this.route.params.subscribe( params => {
+      this.movieId = params.mid;
+      this.movieObj = this.data.getDetails(this.movieId)[0];
+    });
     this.route.params.subscribe( params => this.operation = params.opr);
   }
 
