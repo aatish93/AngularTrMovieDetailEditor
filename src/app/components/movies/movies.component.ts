@@ -13,16 +13,18 @@ export class MoviesComponent implements OnInit {
   lanId: Object;
   //searchText;
   constructor(private moviesService : MoviesService, private route: ActivatedRoute) {
-    this.route.params.subscribe(
-      params => this.catId = params.cid
-    );
-    this.route.params.subscribe(
-      params => this.lanId = params.lid
-    );
+    
   }
 
   ngOnInit() {
-    this.movies=this.moviesService.getCategoryMovies(this.catId,this.lanId);
-    this.monthYearList=this.moviesService.getMonthYearList(this.catId,this.lanId);
+    this.route.params.subscribe(
+      params => this.catId = params.cid
+    );
+    this.route.params.subscribe(params => {
+      this.lanId = params.lid;
+      this.movies=this.moviesService.getCategoryMovies(this.catId,this.lanId);
+      this.monthYearList=this.moviesService.getMonthYearList(this.catId,this.lanId);
+    });
+    
   }
 }

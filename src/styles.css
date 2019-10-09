@@ -1,1 +1,20 @@
 @import '~angular-tree-component/dist/angular-tree-component.css';
+.sidebar {
+    height: 100%;
+    width: max-content;
+    align-self: flex-start;
+    padding-top: 50px
+}
+
+body {
+    margin: 0;
+    background: #F2F2F2;
+    font-family: 'Montserrat', sans-serif;
+    height: 100vh;
+}
+
+#container {
+   display: grid;
+   grid-template-columns: 20% auto;
+   height: 100%;
+}

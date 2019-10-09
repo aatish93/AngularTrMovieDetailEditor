@@ -26,9 +26,6 @@ export class MovieFormComponent implements OnInit {
     if (this.operation=='update') this.upd=true; else this.upd=false;
   }
 
-  log(x){
-    console.log(x);
-  }
   onSubmit() {
     let newMovie=JSON.parse(JSON.stringify(this.form.value).replace(/\\n/g, '').replace('  ',''));
     if (this.operation=='update'){
@@ -47,7 +44,7 @@ export class MovieFormComponent implements OnInit {
         //this.data.setMovieName(3,"movienewc");
         console.log(this.data.getMoviesList());
         this.form.reset();
-        this.router.navigateByUrl('/');
+        this.router.navigate(['category',newMovie.language.split(':')[0],'movie',newMovie.category.split(':')[0],'details',this.movieId]);
     }
     if (this.operation=='insert'){
       let movie,maxId=this.data.getMaxMovieId();
@@ -67,7 +64,7 @@ export class MovieFormComponent implements OnInit {
         }
       }
       this.data.insert(movie);
-      this.router.navigateByUrl('/');
+      this.router.navigate(['/category',movie.language.id,'movie',movie.category.id]);
     }
   }
 

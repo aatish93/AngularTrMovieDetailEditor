@@ -43,13 +43,22 @@ export class SidebarComponent implements OnInit {
         // }
       }
     }
-    console.log(tempList)
+    tempList.push({
+      id:0,
+      name: 'All Movies',
+      key: 'all',
+      children: []
+    })
+    //console.log(tempList)
     return tempList;
   }
   onEvent = ($event) => this.viewMovie($event.node);
   viewMovie(node){
     if(node.data.key=='category'){
-      this.router.navigate(['../category',node.parent.data.id,'movie',node.data.id]);
+      this.router.navigate(['/category',node.parent.data.id,'movie',node.data.id]);
+    }
+    if(node.data.key=='all'){
+      this.router.navigate(['/category',0,'movie',0]);
     }
   }
 }

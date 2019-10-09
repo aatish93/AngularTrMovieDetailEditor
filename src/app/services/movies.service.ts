@@ -178,12 +178,17 @@ export class MoviesService {
   }
   getCategoryMovies(catId,lanId){
      let tempList=[];
+    if(catId==0 && lanId ==0){
+      tempList= this.getMoviesList();
+    }
+    else{
      for(let i=0;i<this.dataList.length;i++){
       if(this.dataList[i].category.id==catId && this.dataList[i].language.id==lanId){
         tempList.push(this.dataList[i])
       }
-     }
-    return tempList
+     }}
+     console.log(tempList[2])
+    return tempList;
   }
   getMonthYearList(catId,lanId){
     let tempList=[];

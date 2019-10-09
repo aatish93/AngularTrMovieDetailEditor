@@ -20,7 +20,6 @@ export class DetailsComponent implements OnInit {
 
   deleteMovie(){
     this.data.delete(this.movieId);
-    console.log(this.data.getMoviesList());
   }
 
 }
