@@ -32,7 +32,6 @@ export class MovieFormComponent implements OnInit {
 
   onSubmit() {
     let newMovie=JSON.parse(JSON.stringify(this.form.value).replace(/\\n/g, '').replace('  ',''));
-    console.log(newMovie.releasedate)
     if (this.operation=='update'){
         if (newMovie.name != "" && newMovie.name !=null)
           this.data.setMovieName(this.movieId,newMovie.name);

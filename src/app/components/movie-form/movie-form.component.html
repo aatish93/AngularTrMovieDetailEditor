@@ -32,7 +32,7 @@
   </div>
   <div class="form-group">
     <label for="releasedate">Release Date: </label>
-    <input required="{{!upd}}" ngModel name="releasedate" #releasedate="ngModel" id="releasedate" type="date" class="form-control">
+    <input required="{{!upd}}" ngModel="{{movieObj.releaseYear}}-{{movieObj.releaseMonth}}-01" name="releasedate" #releasedate="ngModel" id="releasedate" type="date" class="form-control">
     <div class="alert-danger" *ngIf="releasedate.touched && !releasedate.valid">ReleaseDate is required</div>
   </div>
   <br><button class="button" type="submit" [disabled]="!f.valid">Submit</button>

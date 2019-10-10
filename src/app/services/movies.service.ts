@@ -13,8 +13,8 @@ export class MoviesService {
           id: 1,
           name: 'horror'
         },
-        releaseMonth: 1,
-        releaseYear: 1993,
+        releaseMonth: "01",
+        releaseYear: "1993",
         culture: 'classical',
         language: {
           id: 3,
@@ -28,8 +28,8 @@ export class MoviesService {
           id: 2,
           name: 'action'
         },
-        releaseMonth: 12,
-        releaseYear: 1996,
+        releaseMonth: "12",
+        releaseYear: "1996",
         culture: 'Traditional',
         language: {
           id: 2,
@@ -60,8 +60,8 @@ export class MoviesService {
           id: 3,
           name: 'romance'
         },
-        releaseMonth: 4,
-        releaseYear: 1995,
+        releaseMonth: "04",
+        releaseYear: "1995",
         culture: 'Western',
         language: {
             id: 1,
@@ -76,8 +76,8 @@ export class MoviesService {
           id: 2,
           name: 'action'
         },
-        releaseMonth: 4,
-        releaseYear: 1995,
+        releaseMonth: "04",
+        releaseYear: "1995",
         culture: 'Western',
         language: {
             id: 1,
